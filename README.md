@@ -1,4 +1,4 @@
-# categorical-discovery
+# comparing categorical and embeddings
 
 A small, self-contained prototype for making **categorical mathematical structure** usable alongside **embedding-based retrieval**. The point is not to rediscover the familiar slogan that categories preserve structure and embeddings are approximate. The point is to make that distinction operational: put both methods on the same mathematical correspondences, find the right categorical representation for each kind of structure, and test what each method can actually do.
 
