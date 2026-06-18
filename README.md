@@ -1,8 +1,13 @@
 # categorical-discovery
 
-A small, self-contained prototype investigating whether **categorical structure** (theory morphisms, ologs, functorial data migration) captures mathematical knowledge that **embedding-based retrieval** misses — and, where it does, *how*.
+A small, self-contained prototype for making **categorical mathematical structure** usable alongside **embedding-based retrieval**. The point is not to rediscover the familiar slogan that categories preserve structure and embeddings are approximate. The point is to make that distinction operational: put both methods on the same mathematical correspondences, find the right categorical representation for each kind of structure, and test what each method can actually do.
 
-**Thesis:** embeddings retrieve by **similarity**; categorical structure **transports along well-typed, structure-preserving maps**. Embeddings *approximate* relationships; categorical maps *certify and migrate* them. The prototype uses the categorically-correct tool for each kind of structure, and measures both against a fair embedding baseline.
+**Design thesis:** embeddings are good candidate generators; categorical structure is the layer that can certify, transport, and preserve meaning once a candidate correspondence is on the table. The prototype implements that bridge pattern in two settings:
+
+- algebraic theories, where the right categorical language is **Lawvere theories / interpretations**;
+- relational mathematical knowledge schemas, where the right categorical language is **ologs / CQL / functorial data migration**.
+
+The main lesson is tool-correctness. An early plan tried to force Boolean algebra into CQL; an independent critic caught that this was the wrong categorical tool, because CQL schemas have unary arrows while Boolean operations are binary. The final prototype turns that correction into the architecture: use Lawvere theories for algebra, and use ologs/CQL for relational knowledge.
 
 ## The two pieces
 
@@ -38,10 +43,13 @@ The headline (0.64) is inflated by lexical overlap; on genuinely **disjoint voca
 
 **Piece B (CQL, validated):** the violation spike rejects via a chase **contradiction** (`carrier-of-S2 = carrier-of-S1`, i.e. reject-not-merge); the valid-migration file — including `I_back = delta F I_new` — loads and chases cleanly. Prover-backed compile-time integrity confirmed.
 
-## What this shows — and what it doesn't
+## What this contributes — and what it doesn't
 
-- **Shows (mechanism):** categorical maps transport structure *exactly* and preserve integrity *by construction*, where a fair similarity encoder only *approximates* the correspondence and is unreliable once vocabulary is disjoint.
-- **Does not show:** that "embeddings suffice" is false as *real-task sufficiency* — the set is small and hand-curated, the vocabulary maximally disjoint, the encoder a single general-purpose model. This is a **mechanism demonstration on a known, classical correspondence**, not novel discovery.
+- **Bridge pattern:** use embeddings to retrieve or rank plausible mathematical correspondences; use categorical maps to certify what structure is actually preserved and to transport data/theorems/instances along that correspondence.
+- **Tool-correct categorical modeling:** Lawvere theories handle algebraic operations; ologs/CQL handle relational schemas and integrity constraints. The repo documents the failed design path as well as the corrected one.
+- **A measured contrast, not a slogan:** the embedding baseline partially recovers the BA↔BR relationship, but lexical overlap accounts for much of the apparent success. On disjoint vocabulary it is unreliable at exact matching; the categorical map is exact because it encodes the structure, not because it is "more semantic search."
+- **A working CQL integrity example:** the relational schema is not just drawn as a diagram; CQL rejects a bad instance by chase contradiction and validates a schema migration.
+- **Does not show:** that embeddings fail in general, or that category theory solves mathematical discovery. The set is small and hand-curated, the encoder is one general-purpose model, and the examples are known classical correspondences. This is a prototype of an integration pattern, not a real-task benchmark or a novel-discovery result.
 
 ## Layout
 
