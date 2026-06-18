@@ -7,8 +7,6 @@ A small, self-contained prototype for making **categorical mathematical structur
 - algebraic theories, where the right categorical language is **Lawvere theories / interpretations**;
 - relational mathematical knowledge schemas, where the right categorical language is **ologs / CQL / functorial data migration**.
 
-The main lesson is tool-correctness. An early plan tried to force Boolean algebra into CQL; an independent critic caught that this was the wrong categorical tool, because CQL schemas have unary arrows while Boolean operations are binary. The final prototype turns that correction into the architecture: use Lawvere theories for algebra, and use ologs/CQL for relational knowledge.
-
 ## System architecture
 
 The prototype is not "category theory instead of embeddings." It is a small version of a layered system:
