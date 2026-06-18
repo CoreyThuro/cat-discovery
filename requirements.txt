@@ -1,0 +1,14 @@
+# Pinned dependencies for the prototype scripts (Python 3.10.13).
+# WP1+WP2 (scripts/wp12_lawvere_boolalg_boolring.py): standard library only.
+# WP3 (scripts/wp3_embedding_and_soundness.py): the embedding arm needs these +
+#   network access (or a warm HF cache) to load the pinned encoder all-MiniLM-L6-v2
+#   (snapshot 1110a243fdf4706b3f48f1d95db1a4f5529b4d41). Without network and an empty
+#   cache the WP3 embedding arm SKIPS (the harness is still importable/runnable).
+# WP4 fallback (scripts/wp4_fallback_fdm.py): standard library only.
+# WP4 full-strength (scripts/wp4_cql/): needs a JDK + the CQL/AQL engine (categoricaldata.net) — NOT pip-installable.
+
+sentence-transformers==5.5.1
+transformers==5.10.2
+torch==2.8.0
+numpy==2.2.1
+scikit-learn==1.6.1

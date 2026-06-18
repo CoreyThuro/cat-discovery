@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+
+# CQL/AQL engine scratch output
+*.cql.log
+
+# Source research brief — kept locally, excluded from version control
+categorical-discovery-prototype-brief.md
