@@ -1,4 +1,4 @@
-# comparing categorical and embeddings
+# categorical-discovery
 
 A small, self-contained prototype for making **categorical mathematical structure** usable alongside **embedding-based retrieval**. The point is not to rediscover the familiar slogan that categories preserve structure and embeddings are approximate. The point is to make that distinction operational: put both methods on the same mathematical correspondences, find the right categorical representation for each kind of structure, and test what each method can actually do.
 
@@ -8,6 +8,27 @@ A small, self-contained prototype for making **categorical mathematical structur
 - relational mathematical knowledge schemas, where the right categorical language is **ologs / CQL / functorial data migration**.
 
 The main lesson is tool-correctness. An early plan tried to force Boolean algebra into CQL; an independent critic caught that this was the wrong categorical tool, because CQL schemas have unary arrows while Boolean operations are binary. The final prototype turns that correction into the architecture: use Lawvere theories for algebra, and use ologs/CQL for relational knowledge.
+
+## System architecture
+
+The prototype is not "category theory instead of embeddings." It is a small version of a layered system:
+
+```text
+embedding / graph retrieval
+  proposes plausible mathematical correspondences
+        |
+        v
+categorical validation + transport
+  Lawvere theories: certify algebraic correspondences
+  CQL / ologs: preserve relational knowledge-base integrity
+        |
+        v
+validated output
+  exact translation, controlled lossy functor, rejected false positive,
+  or integrity-preserving schema migration
+```
+
+In this architecture, the **Lawvere-theory piece** asks whether two algebraic vocabularies are related by operations and equations (e.g. Boolean algebra ↔ Boolean ring). The **CQL piece** asks whether the relational knowledge base storing structures, homomorphisms, functions, domains, and carriers remains coherent under constraints and migration. They are both categorical, but they operate at different layers: mathematical content vs. knowledge-representation infrastructure.
 
 ## The two pieces
 
